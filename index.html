@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11_12</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <section id="PARTE 1">
+        <h2>Evaluación de Calificación</h2>
+        <label for="calificacion"> por favor ingrese su calificación (0-100): </label>
+        <input type="number" id="calificacion" placeholder="0-100">
+        <button onclick="evaluarCalificacion()">Evaluar</button>
+        <p id="resultado"></p>
+    </section>
+
+    <hr>
+
+    <section id="part2">
+        <h1>Par o Impar</h1>
+        <label for="numero">por favor Ingrese el número: </label>
+        <input type="number" id="numero" placeholder="Número">
+        <button onclick="calcular()">Verificar</button>
+        <p id="resultado2"></p>
+    </section>
+
+    <hr>
+
+    <section id="part3">
+        <h1>Descuentos</h1>
+        <label for="monto">Monto: </label>
+        <input type="number" id="monto" placeholder="Monto">
+        <button onclick="calculardes()">Calcular Descuento</button>
+        <p id="resultado3"></p>
+    </section>
+
+    <hr>
+
+    <section id="part4">
+        <h1>Adivinanza</h1>
+        <label for="adivinanza">Ingrese un número (1-10): </label>
+        <input type="number" id="adivinanza" placeholder="Número">
+        <button onclick="ingresar()">Adivinar</button>
+        <p id="resultado4"></p>
+    </section>
+
+    <script>
+        function evaluarCalificacion() {
+            let calificacion = document.getElementById("calificacion").value;
+            calificacion = parseInt(calificacion);
+
+            let resultado = "";
+
+            if (calificacion >= 90) {
+                resultado = "Aprobado con honores!!";
+            } else if (calificacion >= 70) {
+                resultado = "Aprobado";
+            } else {
+                resultado = "Reprobado";
+            }
+
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        function calcular() {
+            let numero = document.getElementById("numero").value;
+            numero = parseInt(numero);
+            let resultado2 = "";
+
+            if (numero % 2 === 0) {
+                resultado2 = "El número es PAR";
+            } else {
+                resultado2 = "El número es IMPAR";
+            }
+
+            document.getElementById("resultado2").innerText = resultado2;
+        }
+
+        function calculardes() {
+            let monto = document.getElementById("monto").value;
+            monto = parseInt(monto);
+            let resultado3 = "";
+
+            if (monto > 100) {
+                resultado3 = "Descuento del 10%";
+            } else {
+                resultado3 = "No hay descuento";
+            }
+
+            document.getElementById("resultado3").innerText = resultado3;
+        }
+
+        const aleatorio = Math.floor(Math.random() * 10) + 1;
+
+        function ingresar() {
+            let adivinanza = document.getElementById("adivinanza").value;
+            adivinanza = parseInt(adivinanza);
+            let resultado4 = "";
+
+            if (adivinanza === aleatorio) {
+                resultado4 = "¡FELICIDADES, ADIVINASTE!";
+            } else {
+                resultado4 = `Lo siento, era ${aleatorio}.`;
+            }
+
+            document.getElementById("resultado4").innerText = resultado4;
+        }
+    </script>
+
+</body>
+
+</html>
